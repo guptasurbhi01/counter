@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    .main{
+        height: 250px;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: rgb(24, 102, 112);
+    }
+    .main:hover{
+        background-color: rgb(31, 150, 130);
+        transition: background-color 0.5s ease-in-out;
+    }
+    #counter {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+    .buttons{
+        display: flex;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      background-color: rgb(91,188,122);;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgb(101,388,150);
+      transition: background-color 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+<div class="main">
+  <div id="counter">0</div>
+  <div class="buttons">
+  <button onclick="increase()">+</button>
+  <button onclick="decrease()">-</button>
+  <button onclick="reset()">Reset</button>
+  </div>
+  </div>
+
+  <script>
+    let count = 0;
+    const counterElement = document.getElementById('counter');
+
+    function updateCounter() {
+      counterElement.textContent = count;
+    }
+
+    function increase() {
+      count++;
+      updateCounter();
+    }
+
+    function decrease() {
+      count--;
+      updateCounter();
+    }
+
+    function reset() {
+      count = 0;
+      updateCounter();
+    }
+  </script>
+
+</body>
+</html>
